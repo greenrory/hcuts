@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clark Lawns | Luxury Lawn Care</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <style>
+        :root {
+            /* Ultra-modern color palette */
+            --primary: #0c0f12;
+            --secondary: #161b21;
+            --accent: #10b981;
+            --accent-dark: #059669;
+            --accent-light: #34d399;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --surface: #1f2937;
+            
+            /* New gradient system */
+            --gradient-1: linear-gradient(135deg, #10b981, #059669);
+            --gradient-2: linear-gradient(135deg, #34d399, #10b981);
+            --gradient-surface: linear-gradient(145deg, 
+                rgba(31, 41, 55, 0.9), 
+                rgba(17, 24, 39, 0.95)
+            );
+            
+            /* Modern blur effects */
+            --blur-sm: blur(8px);
+            --blur-md: blur(16px);
+            --blur-lg: blur(24px);
+            
+            /* Enhanced shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-accent: 0 8px 32px rgba(16, 185, 129, 0.2);
+            
+            /* Modern spacing */
+            --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+            --space-sm: clamp(1rem, 2vw, 1.5rem);
+            --space-md: clamp(2rem, 4vw, 3rem);
+            --space-lg: clamp(3rem, 6vw, 4.5rem);
+            --space-xl: clamp(4rem, 8vw, 6rem);
+            
+            /* Container widths */
+            --width-content: min(90%, 1200px);
+            --width-narrow: min(90%, 800px);
+            
+            /* Border radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICA8ZmlsdGVyIGlkPSJub2lzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+CiAgICA8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==');
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* Ultra-modern header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(12, 15, 18, 0.8);
+            backdrop-filter: var(--blur-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-container {
+            width: var(--width-content);
+            margin: 0 auto;
+            padding: var(--space-sm) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+        }
+
+        /* Hero section reimagined */
+        .hero {
+            min-height: 100vh;
+            padding-top: 5rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            width: var(--width-content);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            color: var(--accent-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+            max-width: 50ch;
+        }
+
+        /* Enhanced CTA section */
+        .cta-group {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .cta-primary {
+            background: var(--gradient-1);
+            color: var(--text);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-secondary {
+            background: rgba(31, 41, 55, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            backdrop-filter: var(--blur-sm);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(31, 41, 55, 0.7);
+            border-color: var(--accent);
+        }
+
+        /* Hero features list */
+        .hero-features {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .hero-feature i {
+            color: var(--accent);
+        }
+
+        /* Services section */
+        .services {
+            padding: var(--space-xl) 0;
+            background: var(--gradient-surface);
+            position: relative;
+        }
+
+        .services-container {
+            width: var(--width-content);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            color: var(--accent-light);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-sm);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .service-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: var(--blur-sm);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xs);
+            color: var(--accent-light);
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* Stats section */
+        .stats {
+            padding: var(--space-lg) 0;
+            background: linear-gradient(to bottom, 
+                rgba(16, 185, 129, 0.1),
+                transparent
+            );
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: var(--space-md);
+            background: rgba(31, 41, 55, 0.3);
+            backdrop-filter: var(--blur-sm);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Enhanced hero right side */
+        .hero-visual {
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            perspective: 1000px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image-container:hover {
+            transform: perspective(1000px) rotateY(0deg) translateZ(20px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transform: scale(1.1);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image-container:hover .hero-image {
+            transform: scale(1);
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(16, 185, 129, 0.2),
+                rgba(12, 15, 18, 0.95)
+            );
+            border-radius: var(--radius-lg);
+        }
+
+        .grain-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.25;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .floating-card {
+            position: absolute;
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            width: auto;
+            max-width: 320px;
+        }
+
+        .card-blur-bg {
+            position: absolute;
+            inset: 0;
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: inherit;
+            transition: all 0.4s ease;
+        }
+
+        .floating-card:hover .card-blur-bg {
+            background: rgba(31, 41, 55, 0.98);
+            border-color: var(--accent);
+        }
+
+        .floating-card-inner {
+            position: relative;
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .floating-card-icon {
+            position: relative;
+            width: 52px;
+            height: 52px;
+            background: var(--gradient-1);
+            border-radius: var(--radius-md);
+            display: grid;
+            place-items: center;
+            font-size: 1.75rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .icon-glow {
+            position: absolute;
+            inset: -1px;
+            background: var(--gradient-1);
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+
+        .floating-card:hover .icon-glow {
+            opacity: 0.5;
+        }
+
+        .rating-header, .stats-header {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .floating-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .rating-total, .stats-plus {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+        }
+
+        .floating-card-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin: 0.25rem 0;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+            font-size: 0.875rem;
+            display: flex;
+            gap: 0.125rem;
+        }
+
+        .rating-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .badge-accent {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-full);
+            color: var(--accent-light);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge-icon {
+            font-size: 1rem;
+        }
+
+        .card-1 {
+            top: 15%;
+            right: -30px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .card-2 {
+            bottom: 20%;
+            left: -30px;
+            animation: float 6s infinite ease-in-out reverse;
+        }
+
+        .decoration-lines {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 50px,
+                rgba(255, 255, 255, 0.03) 50px,
+                rgba(255, 255, 255, 0.03) 51px
+            );
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -50px;
+        }
+
+        .circle-2 {
+            width: 250px;
+            height: 250px;
+            bottom: -50px;
+            left: -75px;
+        }
+
+        .decoration-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent,
+                var(--accent),
+                transparent
+            );
+            opacity: 0.1;
+        }
+
+        /* Enhanced Testimonials Section */
+        .testimonials {
+            padding: var(--space-xl) 0;
+            background: var(--gradient-surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            width: var(--width-content);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .testimonial-card {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: var(--blur-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: Georgia, serif;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0.3;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .author-title {
+            color: var(--accent);
+            font-size: 0.875rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+
+        .process-container {
+            width: var(--width-content);
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .process-step {
+            position: relative;
+            padding: var(--space-md);
+            background: rgba(31, 41, 55, 0.3);
+            backdrop-filter: var(--blur-sm);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            color: var(--accent-light);
+            margin: var(--space-sm) 0;
+        }
+
+        .step-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* Connecting lines between process steps */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent,
+                var(--accent),
+                transparent
+            );
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .process-steps::before {
+                display: none;
+            }
+        }
+
+        /* Enhanced Process Step Animation */
+        .process-step {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Enhanced Service Card Animation */
+        .service-card {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(34, 197, 94, 0.2);
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Enhanced Testimonial Animation */
+        .testimonial-card {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Tablet Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --space-xl: clamp(3rem, 6vw, 5rem);
+                --space-lg: clamp(2rem, 4vw, 3rem);
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .hero-visual {
+                min-height: 400px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .floating-card {
+                transform: scale(0.9);
+            }
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: var(--space-xs) var(--space-sm);
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.125rem);
+            }
+
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto var(--space-lg);
+            }
+
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-sm);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-card {
+                transform: scale(0.8);
+            }
+
+            .card-1 { right: -10px; }
+            .card-2 { left: -10px; }
+            .card-3 { right: 0; }
+        }
+
+        /* Small Mobile Fixes */
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+            }
+
+            .service-card,
+            .testimonial-card,
+            .process-step {
+                padding: var(--space-sm);
+            }
+
+            .floating-card {
+                transform: scale(0.7);
+                padding: var(--space-xs);
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Fix for very small devices */
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+
+        .footer {
+            position: relative;
+            padding: var(--space-xl) 0 var(--space-md);
+            background: var(--primary);
+            overflow: hidden;
+        }
+
+        .footer-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--accent), 
+                transparent
+            );
+        }
+
+        .footer-container {
+            width: var(--width-content);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .footer-content {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.75rem;
+        }
+
+        .footer-tagline {
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent
+            );
+            margin-bottom: var(--space-md);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                padding: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container {
+                padding: 0 var(--space-sm);
+            }
+
+            .gradient-text {
+                font-size: 1.5rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Enhanced responsive styles */
+        .floating-card {
+            position: absolute;
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            width: auto;
+            max-width: 320px;
+        }
+
+        .rating-header {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .rating-icon {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-top: 2px;
+        }
+
+        /* Large devices (1200px and up) */
+        @media (min-width: 1200px) {
+            .floating-card {
+                padding: 1.75rem 2rem;
+            }
+
+            .card-1 {
+                top: 15%;
+                right: -30px;
+            }
+
+            .card-2 {
+                bottom: 20%;
+                left: -30px;
+            }
+
+            .floating-card-value {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* Medium devices (768px to 1199px) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .floating-card {
+                padding: 1.5rem;
+                max-width: 280px;
+            }
+
+            .card-1 {
+                top: 12%;
+                right: -20px;
+            }
+
+            .card-2 {
+                bottom: 15%;
+                left: -20px;
+            }
+
+            .floating-card-value {
+                font-size: 2rem;
+            }
+
+            .floating-card-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Small devices (up to 767px) */
+        @media (max-width: 767px) {
+            .hero-visual {
+                min-height: 500px;
+            }
+
+            .floating-card {
+                padding: 1.25rem;
+                max-width: 260px;
+                transform: scale(0.9);
+            }
+
+            .card-1 {
+                top: 10%;
+                right: -15px;
+            }
+
+            .card-2 {
+                bottom: 12%;
+                left: -15px;
+            }
+
+            .floating-card-value {
+                font-size: 1.75rem;
+            }
+
+            .floating-card-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1.25rem;
+            }
+
+            .rating-total {
+                font-size: 1rem;
+            }
+
+            .floating-card-label {
+                font-size: 0.8125rem;
+            }
+
+            .rating-stars {
+                font-size: 0.75rem;
+            }
+
+            .rating-count {
+                font-size: 0.6875rem;
+            }
+
+            .badge-accent {
+                padding: 0.25rem 0.625rem;
+                font-size: 0.6875rem;
+            }
+        }
+
+        /* Extra small devices (up to 480px) */
+        @media (max-width: 480px) {
+            .floating-card {
+                transform: scale(0.85);
+                padding: 1rem;
+                max-width: 240px;
+            }
+
+            .card-1 {
+                top: 8%;
+                right: -10px;
+            }
+
+            .card-2 {
+                bottom: 10%;
+                left: -10px;
+            }
+
+            .floating-card-value {
+                font-size: 1.6rem;
+            }
+
+            .floating-card-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+
+            .rating-total {
+                font-size: 0.9rem;
+            }
+
+            .floating-card-label {
+                font-size: 0.75rem;
+            }
+
+            .rating-stars {
+                font-size: 0.65rem;
+            }
+
+            .rating-count {
+                font-size: 0.6rem;
+            }
+
+            .badge-accent {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.6rem;
+            }
+        }
+
+        .profile-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .profile-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-left: -8px;
+            border: 2px solid rgba(31, 41, 55, 0.95);
+        }
+
+        .profile-icon:first-child {
+            margin-left: 0;
+        }
+
+        .customer-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0.25rem 0;
+        }
+
+        /* Update media queries for new elements */
+        @media (max-width: 767px) {
+            .profile-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 1rem;
+                margin-left: -6px;
+            }
+
+            .customer-text {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-icon {
+                width: 18px;
+                height: 18px;
+                font-size: 0.875rem;
+                margin-left: -4px;
+            }
+
+            .customer-text {
+                font-size: 1rem;
+            }
+
+            .profile-row {
+                gap: 0.375rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <i class='bx bx-leaf'></i>
+                </span>
+                <span>Clark Lawns</span>
+            </a>
+            <!-- Navigation will go here -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class='bx bx-check-circle'></i>
+                        <span>Professional Lawn Care Services</span>
+                    </div>
+                    <h1 class="hero-title">Transform Your Outdoor Space</h1>
+                    <p class="hero-subtitle">Experience premium lawn care services that blend artistry with precision. Creating beautiful, sustainable landscapes in Mount Pleasant.</p>
+                    <!-- CTAs will go here -->
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80" 
+                             alt="Professional lawn care" 
+                             class="hero-image">
+                        <div class="hero-image-overlay"></div>
+                        <div class="grain-overlay"></div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-card card-1">
+                                <div class="card-blur-bg"></div>
+                                <div class="floating-card-inner">
+                                    <div class="floating-card-icon">
+                                        <i class='bx bx-medal'></i>
+                                        <div class="icon-glow"></div>
+                                    </div>
+                                    <div class="floating-card-content">
+                                        <div class="rating-header">
+                                            <span class="floating-card-value">4.9</span>
+                                            <i class='bx bxs-award rating-icon'></i>
+                                            <span class="rating-total">/5.0</span>
+                                        </div>
+                                        <span class="floating-card-label">Top Rated Service</span>
+                                        <div class="rating-stars">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star-half'></i>
+                                        </div>
+                                        <div class="profile-row">
+                                            <div class="profile-icons">
+                                                <div class="profile-icon"><i class='bx bx-user-circle'></i></div>
+                                                <div class="profile-icon"><i class='bx bx-user-circle'></i></div>
+                                                <div class="profile-icon"><i class='bx bx-user-circle'></i></div>
+                                            </div>
+                                            <span class="rating-count">Verified Reviews</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-card card-2">
+                                <div class="card-blur-bg"></div>
+                                <div class="floating-card-inner">
+                                    <div class="floating-card-icon">
+                                        <i class='bx bx-check-shield'></i>
+                                        <div class="icon-glow"></div>
+                                    </div>
+                                    <div class="floating-card-content">
+                                        <div class="stats-header">
+                                            <span class="floating-card-label">Serving</span>
+                                        </div>
+                                        <span class="customer-text">Tons of Happy Customers</span>
+                                        <div class="badge-accent">
+                                            <span class="badge-icon">🏆</span>
+                                            <span>Mount Pleasant's Choice</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="decoration-circle circle-1"></div>
+                            <div class="decoration-circle circle-2"></div>
+                            <div class="decoration-lines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- More sections will follow -->
+    </main>
+
+    <section class="services" id="services">
+        <div class="services-container">
+            <header class="section-header">
+                <div class="section-badge">
+                    <i class='bx bx-leaf'></i>
+                    <span>Our Services</span>
+                </div>
+                <h2 class="section-title">Premium Lawn Care Solutions</h2>
+                <p class="section-subtitle">Comprehensive lawn maintenance and landscaping services tailored to your needs</p>
+            </header>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-cut'></i>
+                    </div>
+                    <h3 class="service-title">Lawn Maintenance</h3>
+                    <p class="service-description">Professional mowing, edging, and trimming services to keep your lawn looking pristine year-round.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-leaf'></i>
+                    </div>
+                    <h3 class="service-title">Landscaping</h3>
+                    <p class="service-description">Custom landscape design and installation to enhance your property's beauty and value.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class='bx bx-calendar'></i>
+                    </div>
+                    <h3 class="service-title">Seasonal Care</h3>
+                    <p class="service-description">Comprehensive seasonal maintenance including cleanup, mulching, and preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <header class="section-header">
+                <div class="section-badge">
+                    <i class='bx bx-message-square-dots'></i>
+                    <span>Testimonials</span>
+                </div>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real feedback from satisfied customers who trust us with their lawns</p>
+            </header>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Clark Lawns transformed our yard completely. Their attention to detail makes our lawn stand out in the neighborhood."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Sarah M.">
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Sarah M.</span>
+                            <span class="author-title">Mount Pleasant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Best lawn service in Mount Pleasant. They're reliable, thorough, and our lawn has never looked better."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James K.">
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">James K.</span>
+                            <span class="author-title">Mount Pleasant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Professional, punctual, and perfect results every time. Highly recommend their services to anyone in Mount Pleasant."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael R.">
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Michael R.</span>
+                            <span class="author-title">Mount Pleasant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="process-container">
+            <header class="section-header">
+                <div class="section-badge">
+                    <i class='bx bx-list-check'></i>
+                    <span>Our Process</span>
+                </div>
+                <h2 class="section-title">How We Work</h2>
+                <p class="section-subtitle">Simple, effective steps to deliver exceptional lawn care service</p>
+            </header>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Initial Consultation</h3>
+                    <p class="step-description">We begin with a thorough assessment of your property and discuss your specific needs and goals for your outdoor space.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Custom Plan</h3>
+                    <p class="step-description">We develop a tailored maintenance plan that fits your property's needs and your schedule preferences.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Expert Service</h3>
+                    <p class="step-description">Our skilled team executes the plan with precision, using professional equipment and proven techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="footer-container">
+            <div class="footer-content glass-card">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class='bx bx-leaf'></i>
+                    </div>
+                    <h3 class="gradient-text">Clark Lawns</h3>
+                </div>
+                
+                <p class="footer-tagline">
+                    Transforming Mount Pleasant lawns with precision and care. 
+                    Experience the difference of professional lawn maintenance.
+                </p>
+                
+                <div class="footer-contact">
+                    <a href="tel:+13129726680" class="contact-link">
+                        <i class='bx bx-phone'></i>
+                        <span>(312) 972-6680</span>
+                    </a>
+                    <div class="location">
+                        <i class='bx bx-map'></i>
+                        <span>Mount Pleasant, SC</span>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+                
+                <p class="copyright">
+                    © 2024 Clark Lawns | Mount Pleasant, SC | All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
